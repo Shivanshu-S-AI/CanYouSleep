@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B3A6A" />
+      <stop offset="100%" stop-color="#12294C" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+  </defs>
+  <!-- Squircle Base -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#bgGrad)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.3))" />
+  
+  <!-- Outer Accent Ring -->
+  <circle cx="64" cy="64" r="38" fill="none" stroke="#2563EB" stroke-width="6" opacity="0.35" />
+  
+  <!-- Attendance Progress Ring Indicator -->
+  <circle cx="64" cy="64" r="38" fill="none" stroke="url(#ringGrad)" stroke-width="6" stroke-dasharray="238.7" stroke-dashoffset="60" stroke-linecap="round" transform="rotate(-90 64 64)" />
+  
+  <!-- Center Cap & Letter -->
+  <text x="64" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.5">PW</text>
+  
+  <!-- Small Safe Check Dot -->
+  <circle cx="86" cy="42" r="7" fill="#10B981" stroke="#FFFFFF" stroke-width="2" />
+</svg>

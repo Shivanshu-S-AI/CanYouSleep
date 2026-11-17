@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Pro</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="theme-light">
+  <div class="vercel-app">
+    <!-- Vercel Nav Bar -->
+    <header class="vercel-nav">
+      <div class="nav-brand">
+        <svg class="vercel-triangle" viewBox="0 0 76 65" fill="currentColor">
+          <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+        </svg>
+        <span class="nav-title">Attendance Pro</span>
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="nav-icon-btn" title="Toggle theme" aria-label="Toggle theme">
+          <span class="icon-glyph">🌙</span>
+        </button>
+        <button id="refresh-btn" class="nav-icon-btn" title="Refresh data" aria-label="Refresh">
+          <span class="icon-glyph">🔄</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats Overview Ribbon -->
+    <section class="overview-ribbon">
+      <div class="overview-col">
+        <span class="overview-label">CURRENT</span>
+        <span id="bar-current-pct" class="overview-value font-mono">--%</span>
+      </div>
+      <div class="overview-divider"></div>
+      <div class="overview-col">
+        <span class="overview-label">ATTENDED</span>
+        <span id="bar-attended-total" class="overview-value font-mono">-- / --</span>
+      </div>
+      <div class="overview-divider"></div>
+      <div class="overview-col">
+        <span class="overview-label">TARGET</span>
+        <span id="bar-target-pct" class="overview-value font-mono">75%</span>
+      </div>
+    </section>
+
+    <!-- Segmented Tab Nav -->
+    <nav class="nav-tabs-wrap">
+      <div class="vercel-tabs">
+        <button class="tab-btn active" data-tab="tab-simulator">Simulator</button>
+        <button class="tab-btn" data-tab="tab-subjects">Courses</button>
+      </div>
+    </nav>
+
+    <!-- Main Viewport -->
+    <main class="main-viewport">
+      <!-- TAB 1: Simulator -->
+      <section id="tab-simulator" class="tab-view active">
+        <!-- Configuration Card: Date Range & Presets -->
+        <div class="vercel-card config-card">
+          <!-- Preset Buttons -->
+          <div class="presets-row">
+            <button class="preset-chip active" data-preset="thisWeek">This Week</button>
+            <button class="preset-chip" data-preset="nextWeek">Next Week</button>
+            <button class="preset-chip" data-preset="twoWeeks">2 Weeks</button>
+            <button class="preset-chip" data-preset="month">30 Days</button>
+          </div>
+
+          <!-- Date Inputs Row + Range Badge + Schedule Toggle -->
+          <div class="date-controls-row">
+            <div class="date-picker-wrap">
+              <input type="date" id="sim-start-date" class="vercel-date-input font-mono" />
+              <span class="date-arrow">→</span>
+              <input type="date" id="sim-end-date" class="vercel-date-input font-mono" />
+            </div>
+            <div class="date-actions-wrap">
+              <span class="range-badge font-mono">
+                <span id="range-days-count">--d</span>
+                <span class="badge-dot">•</span>
+                <span id="range-classes-count">--c</span>
+              </span>
+              <button id="toggle-schedule-btn" class="schedule-btn" title="Configure classes per day">
+                Daily
+              </button>
+            </div>
+          </div>
+
+          <!-- Collapsible Daily Schedule Drawer -->
+          <div id="schedule-collapse" class="schedule-drawer hidden">
+            <div class="drawer-label">Daily Classes (Mon–Fri)</div>
+            <div class="weekday-grid">
+              <div class="weekday-item">
+                <span class="weekday-name">Mon</span>
+                <input type="number" id="sched-1" class="weekday-input font-mono" min="0" max="10" value="5" />
+              </div>
+              <div class="weekday-item">
+                <span class="weekday-name">Tue</span>
+                <input type="number" id="sched-2" class="weekday-input font-mono" min="0" max="10" value="5" />
+              </div>
+              <div class="weekday-item">
+                <span class="weekday-name">Wed</span>
+                <input type="number" id="sched-3" class="weekday-input font-mono" min="0" max="10" value="5" />
+              </div>
+              <div class="weekday-item">
+                <span class="weekday-name">Thu</span>
+                <input type="number" id="sched-4" class="weekday-input font-mono" min="0" max="10" value="4" />
+              </div>
+              <div class="weekday-item">
+                <span class="weekday-name">Fri</span>
+                <input type="number" id="sched-5" class="weekday-input font-mono" min="0" max="10" value="5" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unified Simulation Card -->
+        <div id="sim-result-card" class="vercel-card sim-card status-safe">
+          <!-- Top Row: Status Indicator & Hero Metric -->
+          <div class="sim-header-row">
+            <div class="sim-status-group">
+              <span class="status-dot"></span>
+              <span id="sim-badge-tag" class="sim-status-label">ALLOWED ABSENCES</span>
+            </div>
+            <div class="sim-metric-group">
+              <span id="sim-allowable-val" class="sim-metric-num font-mono">+0</span>
+              <span class="sim-metric-unit">classes</span>
+            </div>
+          </div>
+
+          <!-- Single Action / Insight Sentence (No Redundancy) -->
+          <p id="sim-verdict-desc" class="sim-verdict-desc">
+            Select date range.
+          </p>
+
+          <!-- Interactive What-If Slider Section -->
+          <div class="sim-slider-box">
+            <div class="slider-meta-row">
+              <span class="slider-prompt">Simulate absences</span>
+              <span class="slider-counter font-mono"><strong id="slider-count-display">0</strong> absent</span>
+            </div>
+            <div class="slider-track-wrap">
+              <input type="range" id="sim-whatif-slider" min="0" max="15" value="0" class="vercel-slider" />
+            </div>
+            <div class="slider-result-row">
+              <span class="slider-impact-label">Projected:</span>
+              <div class="slider-outcome-group">
+                <span id="slider-projected-pct" class="slider-projected-pct font-mono">--%</span>
+                <span id="slider-status-pill" class="status-pill pill-safe">Target Met</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Courses -->
+      <section id="tab-subjects" class="tab-view">
+        <div class="vercel-card courses-card">
+          <!-- Search Toolbar -->
+          <div class="courses-toolbar">
+            <div class="search-wrap">
+              <span class="search-glyph">🔍</span>
+              <input type="text" id="subject-search-input" class="search-input" placeholder="Search courses" />
+            </div>
+            <span id="subjects-total-count" class="courses-badge font-mono">0</span>
+          </div>
+
+          <!-- Course List -->
+          <div id="subjects-container" class="courses-stack">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Vercel Minimal Footer -->
+    <footer class="vercel-footer">
+      <span class="footer-brand">PW IOI</span>
+      <span class="footer-meta font-mono">4–5 classes/day</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
