@@ -27,7 +27,7 @@ let state = {
   targetPercent: DEFAULT_TARGET,
   attendanceData: null,
   weekdaySchedule: { ...DEFAULT_WEEKDAY_SCHEDULE },
-  theme: 'light',
+  theme: 'dark',
   simStart: '',
   simEnd: '',
   simFutureClasses: 0,
@@ -76,7 +76,7 @@ async function init() {
   const settings = await getSettings();
   state.targetPercent = settings.targetPercent || DEFAULT_TARGET;
   state.weekdaySchedule = settings.weekdaySchedule || { ...DEFAULT_WEEKDAY_SCHEDULE };
-  state.theme = settings.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  state.theme = settings.theme || 'dark';
 
   applyTheme(state.theme);
 

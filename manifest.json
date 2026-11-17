@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "PW IOI Attendance Pro",
+  "name": "CanYouSleep",
   "version": "1.0.0",
-  "description": "Attendance analytics, recovery estimates, and date-range planner for PW Institute of Innovation.",
+  "description": "Smart attendance analytics, recovery estimates, and date-range simulator for PW Institute of Innovation.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -10,7 +10,7 @@
   },
   "action": {
     "default_popup": "popup/popup.html",
-    "default_title": "PW IOI Attendance Pro",
+    "default_title": "CanYouSleep",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

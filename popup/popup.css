@@ -5,51 +5,8 @@
    ======================================================== */
 
 :root {
-  color-scheme: light;
-  /* Vercel Light Theme */
-  --bg-canvas: #ffffff;
-  --bg-subtle: #fafafa;
-  --bg-card: #ffffff;
-  --bg-elevated: #f5f5f5;
-  --bg-input: #ffffff;
-
-  --border-subtle: #eaeaea;
-  --border-default: #d4d4d4;
-  --border-active: #000000;
-
-  --fg-primary: #000000;
-  --fg-secondary: #666666;
-  --fg-tertiary: #888888;
-  --fg-muted: #999999;
-
-  --accent-action: #0070f3;
-  --accent-action-hover: #0060df;
-
-  /* Semantic Subtle Green (Safe / Target Met) */
-  --green-bg: rgba(16, 185, 129, 0.08);
-  --green-border: rgba(16, 185, 129, 0.24);
-  --green-fg: #047857;
-  --green-dot: #10b981;
-
-  /* Semantic Subtle Red (Deficit / Under Target) */
-  --red-bg: rgba(239, 68, 68, 0.08);
-  --red-border: rgba(239, 68, 68, 0.24);
-  --red-fg: #b91c1c;
-  --red-dot: #ef4444;
-
-  /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Geist", "Inter", sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "Geist Mono", Menlo, Consolas, monospace;
-
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-pill: 9999px;
-}
-
-body.theme-dark {
   color-scheme: dark;
-  /* Vercel Dark Theme */
+  /* Vercel Dark Theme (Default) */
   --bg-canvas: #000000;
   --bg-subtle: #080808;
   --bg-card: #0c0c0c;
@@ -78,6 +35,49 @@ body.theme-dark {
   --red-bg: rgba(239, 68, 68, 0.12);
   --red-border: rgba(239, 68, 68, 0.32);
   --red-fg: #f87171;
+  --red-dot: #ef4444;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Geist", "Inter", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Geist Mono", Menlo, Consolas, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-pill: 9999px;
+}
+
+body.theme-light {
+  color-scheme: light;
+  /* Vercel Light Theme */
+  --bg-canvas: #ffffff;
+  --bg-subtle: #fafafa;
+  --bg-card: #ffffff;
+  --bg-elevated: #f5f5f5;
+  --bg-input: #ffffff;
+
+  --border-subtle: #eaeaea;
+  --border-default: #d4d4d4;
+  --border-active: #000000;
+
+  --fg-primary: #000000;
+  --fg-secondary: #666666;
+  --fg-tertiary: #888888;
+  --fg-muted: #999999;
+
+  --accent-action: #0070f3;
+  --accent-action-hover: #0060df;
+
+  /* Semantic Subtle Green */
+  --green-bg: rgba(16, 185, 129, 0.08);
+  --green-border: rgba(16, 185, 129, 0.24);
+  --green-fg: #047857;
+  --green-dot: #10b981;
+
+  /* Semantic Subtle Red */
+  --red-bg: rgba(239, 68, 68, 0.08);
+  --red-border: rgba(239, 68, 68, 0.24);
+  --red-fg: #b91c1c;
   --red-dot: #ef4444;
 }
 

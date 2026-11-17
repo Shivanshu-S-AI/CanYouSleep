@@ -1,8 +1,8 @@
-# PW IOI Attendance Pro 🎓
+# CanYouSleep 🎓
 
 A modern, privacy-focused Chrome Extension crafted specifically for **PhysicsWallah Institute of Innovation (PW IOI)** students (`https://app.pwioi.club/dashboard/student/attendance`).
 
-It calculates **allowable absences**, **required classes to reach target attendance**, estimated **calendar recovery days**, and provides an interactive **Date-Range Attendance Simulator with Deficit Support**.
+CanYouSleep calculates **allowable absences**, **required classes to reach target attendance**, estimated **calendar recovery days**, and features an interactive **Date-Range Attendance Simulator with Deficit Support** styled in a default dark Vercel theme.
 
 ---
 
@@ -41,7 +41,7 @@ It calculates **allowable absences**, **required classes to reach target attenda
    - Progress bar and allowable absences / required classes indicator for each course.
 
 8. **Design Architecture**:
-   - **Vercel Developer Theme**: Clean monochrome foundation with Geist typography, monospace data fields, crisp 1px borders, and high contrast.
+   - **Vercel Developer Theme (Dark by Default)**: Clean monochrome foundation with Geist typography, monospace data fields, crisp 1px borders, and high contrast.
    - **Purposeful Subtle Red / Green Semantics**: Instant comprehension of safety margins vs deficits without visual noise.
    - **Unified Simulator**: Interactive date-range planning and what-if simulation combined into a single, cohesive card with zero redundant metrics.
 
@@ -55,9 +55,9 @@ It calculates **allowable absences**, **required classes to reach target attenda
 4. Click the **Load unpacked** button in the top-left.
 5. Select this folder:
    ```
-   /Users/shiv/attendance_extension
+   /Users/shiv/self_projects/attendance_extension
    ```
-6. The extension **PW IOI Attendance Pro** is now loaded! Pin it to your Chrome toolbar for quick access.
+6. The extension **CanYouSleep** is now loaded! Pin it to your Chrome toolbar for quick access.
 
 ---
 

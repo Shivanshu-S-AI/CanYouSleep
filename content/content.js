@@ -216,7 +216,7 @@
       <div class="pwa-dom-header">
         <div class="pwa-dom-title-wrap">
           <span class="pwa-dom-badge">PW IOI</span>
-          <h3 class="pwa-dom-title">Attendance Planner</h3>
+          <h3 class="pwa-dom-title">CanYouSleep</h3>
         </div>
         <div class="pwa-dom-target-group">
           <span class="pwa-dom-target-label">Target:</span>

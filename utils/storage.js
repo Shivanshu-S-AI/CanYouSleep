@@ -9,7 +9,7 @@ import { DEFAULT_TARGET, DEFAULT_WEEKDAY_SCHEDULE } from './calculator.js';
 const DEFAULT_SETTINGS = {
   targetPercent: DEFAULT_TARGET,
   weekdaySchedule: DEFAULT_WEEKDAY_SCHEDULE,
-  theme: 'system' // 'system', 'light', 'dark'
+  theme: 'dark' // Default to dark
 };
 
 /**
